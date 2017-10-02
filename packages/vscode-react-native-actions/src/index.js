@@ -19,7 +19,7 @@ export function activate(context) {
 
   app.listen(config.port);
 
-  const status = window.createStatusBarItem(StatusBarAlignment.Right, 100);
+  const status = window.createStatusBarItem(StatusBarAlignment.Left, 100);
   status.command = 'extension.reloadReactNative';
   status.text = '$(repo-sync)';
   context.subscriptions.push(status);
