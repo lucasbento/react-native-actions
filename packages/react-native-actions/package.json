@@ -1,18 +1,34 @@
-
 {
   "name": "react-native-actions",
-  "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
-  "keywords": [
-    "react-native"
-  ],
-  "author": "",
-  "license": "",
+  "description": "Run React Native actions from VSCode",
+  "version": "0.0.2",
+  "author": {
+    "name": "Lucas Bento",
+    "email": "lucas.bsilva@outlook.com",
+    "url": "https://github.com/lucasbento"
+  },
+  "bugs": {
+    "url": "https://github.com/lucasbento/react-native-actions/issues"
+  },
   "dependencies": {
     "socket.io-client": "^2.0.3"
   },
+  "engines": {
+    "vscode": "^1.16.0"
+  },
+  "keywords": [
+    "actions",
+    "react-native",
+    "reload",
+    "vscode"
+  ],
+  "license": "MIT",
+  "main": "index.js",
   "peerDependencies": {
     "react-native": "^0.41.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lucasbento/react-native-actions"
   }
 }
