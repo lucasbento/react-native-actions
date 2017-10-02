@@ -41,3 +41,6 @@ buck-out/
 
 # Build
 dist
+
+# Lerna
+lerna-debug.log

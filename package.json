@@ -3,6 +3,7 @@
 		"lerna": "^2.2.0"
 	},
 	"scripts": {
-		"prepublish": "tasks/publish.sh"
+		"prepublish": "tasks/publish.sh",
+		"watch": "lerna exec --scope vscode-react-native-actions -- npm run watch"
 	}
 }
