@@ -3,16 +3,19 @@ import io from 'socket.io-client';
 
 import config from './config';
 
-const { RNActions } = NativeModules;
+const { RNActions } = NativeModules; 
 
 const run = () => {
-  const socket = io(`http://localhost:${config.port}`);
+  const hostUrl = RNActions.getHostUrl()
+    .then((url) => {
+      const socket = io(`${url}:${config.port}`);
 
-  socket.on('action', ({ type }) => {
-    if (type === 'reload') {
-      RNActions.reload();
-    }
-  });
+      socket.on('action', ({ type }) => {
+        if (type === 'reload') {
+          RNActions.reload();
+        }
+      });
+    });
 };
 
 run();
