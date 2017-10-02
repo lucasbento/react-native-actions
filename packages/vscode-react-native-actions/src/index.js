@@ -17,12 +17,6 @@ export function activate(context) {
   const app = server.createServer();
   const socket = io(app);
 
-console.log('soc', socket);
-
-socket.on('connection', () => {
-  console.log('copnnected');
-})
-
   app.listen(config.port);
 
   const status = window.createStatusBarItem(StatusBarAlignment.Right, 100);
@@ -32,7 +26,6 @@ socket.on('connection', () => {
   status.show();
 
   const subscription = commands.registerCommand('extension.reloadReactNative', () => {
-    console.log('emitting');
     socket.emit('action', {
       type: 'reload',
     });

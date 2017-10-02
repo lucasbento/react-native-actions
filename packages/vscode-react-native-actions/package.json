@@ -1,20 +1,23 @@
 {
-  "name": "vscode-react-native-actions",
+  "name": "react-native-actions",
   "displayName": "React Native Actions",
-  "description": "",
+  "description": "Run React Native actions from VSCode",
   "version": "0.0.1",
-  "publisher": "lucasbsilva",
-  "engines": {
-    "vscode": "^1.16.0"
+  "author": {
+    "name": "Lucas Bento",
+    "email": "lucas.bsilva@outlook.com",
+    "url": "https://github.com/lucasbento"
   },
-  "categories": [
-    "Other"
-  ],
   "activationEvents": [
     "*",
     "onCommand:extension.reloadReactNative"
   ],
-  "main": "./dist/index.js",
+  "bugs": {
+    "url": "https://github.com/lucasbento/react-native-actions/issues"
+  },
+  "categories": [
+    "Other"
+  ],
   "contributes": {
     "commands": [
       {
@@ -31,24 +34,35 @@
       }
     ]
   },
-  "scripts": {
-    "postinstall": "exit 0",
-    "test": "node ./node_modules/vscode/bin/test",
-    "build": "npm run clear && babel src --ignore *.spec.js,__tests__,__mocks__ --out-dir dist --copy-files",
-    "clear": "rm -rf ./dist",
-    "lint": "eslint ./src",
-    "prepublish": "npm run build",
-    "ci": "npm run lint && NODE_ENV=CI jest --runInBand",
-    "watch": "babel --ignore *.spec.js,__tests__,__mocks__ -w -d ./dist ./src --copy-files"
-  },
   "dependencies": {
     "socket.io": "^2.0.3"
   },
   "devDependencies": {
-    "vscode": "^1.1.5",
     "babel-cli": "^6.24.0",
     "babel-core": "^6.24.0",
     "babel-preset-es2015": "^6.24.0",
-    "babel-preset-stage-0": "^6.22.0"
+    "babel-preset-stage-0": "^6.22.0",
+    "vscode": "^1.1.5"
+  },
+  "displayName": "React Native Actions",
+  "engines": {
+    "vscode": "^1.16.0"
+  },
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "publisher": "lucasbento",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lucasbento/react-native-actions"
+  },
+  "scripts": {
+    "build": "npm run clear && babel src --ignore *.spec.js,__tests__,__mocks__ --out-dir dist --copy-files",
+    "ci": "npm run lint && NODE_ENV=CI jest --runInBand",
+    "clear": "rm -rf ./dist",
+    "lint": "eslint ./src",
+    "postinstall": "exit 0",
+    "prepublish": "npm run build",
+    "test": "node ./node_modules/vscode/bin/test",
+    "watch": "babel --ignore *.spec.js,__tests__,__mocks__ -w -d ./dist ./src --copy-files"
   }
 }

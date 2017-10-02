@@ -4,6 +4,8 @@
 	},
 	"scripts": {
 		"prepublish": "tasks/publish.sh",
-		"watch": "lerna exec --scope vscode-react-native-actions -- npm run watch"
+		"build": "npm run vscode -- npm run build",
+		"vscode": "lerna exec --scope vscode-react-native-actions",
+		"watch": "npm run vscode -- npm run watch"
 	}
 }
