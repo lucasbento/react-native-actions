@@ -1,4 +1,10 @@
 {
+	"license": "MIT",
+	"author": {
+		"name": "Lucas Bento",
+		"email": "lucas.bsilva@outlook.com",
+		"url": "https://github.com/lucasbento"
+	},
 	"devDependencies": {
 		"lerna": "^2.2.0"
 	},
