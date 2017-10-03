@@ -2,7 +2,7 @@
   "name": "react-native-actions",
   "displayName": "React Native Actions",
   "description": "Run React Native actions from VSCode",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": {
     "name": "Lucas Bento",
     "email": "lucas.bsilva@outlook.com",
@@ -35,6 +35,7 @@
     ]
   },
   "dependencies": {
+    "is-package-dep": "^0.0.1",
     "socket.io": "^2.0.3"
   },
   "devDependencies": {
