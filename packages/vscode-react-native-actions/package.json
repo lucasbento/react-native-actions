@@ -2,15 +2,14 @@
   "name": "react-native-actions",
   "displayName": "React Native Actions",
   "description": "Run React Native actions from VSCode",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": {
     "name": "Lucas Bento",
     "email": "lucas.bsilva@outlook.com",
     "url": "https://github.com/lucasbento"
   },
   "activationEvents": [
-    "*",
-    "onCommand:extension.reloadReactNative"
+    "*"
   ],
   "bugs": {
     "url": "https://github.com/lucasbento/react-native-actions/issues"
@@ -21,16 +20,21 @@
   "contributes": {
     "commands": [
       {
-        "command": "extension.reloadReactNative",
+        "command": "extension.RNReload",
         "title": "Reload",
         "category": "React Native"
       }
     ],
     "keybindings": [
       {
-        "command": "extension.reloadReactNative",
+        "command": "extension.RNReload",
         "key": "ctrl+shift+r",
         "mac": "cmd+shift+r"
+      },
+      {
+        "command": "extension.RNOpenDevMenu",
+        "key": "ctrl+shift+d",
+        "mac": "cmd+shift+d"
       }
     ]
   },

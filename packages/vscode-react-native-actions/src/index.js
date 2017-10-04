@@ -10,6 +10,16 @@ import io from 'socket.io';
 
 import config from '../config';
 
+const COMMANDS = [{
+  trigger: 'extension.RNReload',
+  button: '$(repo-sync)',
+  tooltip: 'Reload React-Native App',
+  action: 'reload',
+}, {
+  trigger: 'extension.RNOpenDevMenu',
+  action: 'openDevMenu',
+}];
+
 export const activate = (context) =>
   isPackageDep('react-native', {
     baseDir: workspace.rootPath,
@@ -23,19 +33,24 @@ export const activate = (context) =>
       const socket = io(app);
     
       app.listen(config.port);
-    
-      const status = window.createStatusBarItem(StatusBarAlignment.Left, 100);
-      status.command = 'extension.reloadReactNative';
-      status.text = '$(repo-sync)';
-      status.tooltip = 'Reload React-Native App';
-      context.subscriptions.push(status);
-      status.show();
-    
-      const subscription = commands.registerCommand('extension.reloadReactNative', () => {
-        socket.emit('action', {
-          type: 'reload',
-        });
+
+      COMMANDS.forEach((command) => {
+        if (command.button) {
+          const status = window.createStatusBarItem(StatusBarAlignment.Left, 100);
+          status.command = command.trigger;
+          status.text = command.button;
+          status.tooltip = command.tooltip;
+          context.subscriptions.push(status);
+
+          status.show();
+        }
+      
+        const subscription = commands.registerCommand(command.trigger, () =>
+          socket.emit('action', {
+            type: command.action,
+          }),
+        );
+      
+        context.subscriptions.push(subscription);
       });
-    
-      context.subscriptions.push(subscription);
     });
