@@ -2,11 +2,15 @@
 
 ## Getting started
 
-`$ yarn add react-native-actions`
+```bash
+yarn add react-native-actions --dev
+```
 
-### Mostly automatic installation
+### Automatic installation
 
-`$ react-native link react-native-actions`
+```bash
+react-native link react-native-actions
+```
 
 ### Manual installation
 
@@ -33,7 +37,9 @@
   	```
 
 ## Usage
-```javascript
-import 'react-native-actions';
+```js
+if (__DEV__) {
+  require('react-native-actions');
+}
 ```
   
