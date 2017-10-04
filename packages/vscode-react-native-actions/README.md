@@ -39,4 +39,4 @@ if (__DEV__) {
 ### Usage
 
 - <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd>: to reload the code on device.
-- <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>D</kbd>: to reload the code on device.
+- <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>D</kbd>: to open developer menu.
