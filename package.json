@@ -7,11 +7,5 @@
 	},
 	"devDependencies": {
 		"lerna": "^2.2.0"
-	},
-	"scripts": {
-		"prepublish": "tasks/publish.sh",
-		"build": "npm run vscode -- npm run build",
-		"vscode": "lerna exec --scope vscode-react-native-actions",
-		"watch": "npm run vscode -- npm run watch"
 	}
 }
