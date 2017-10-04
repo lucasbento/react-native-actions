@@ -27,7 +27,7 @@ yarn add react-native-actions --dev
 react-native link react-native-actions
 ```
 
-> You can check out the [manual installation here](https://github.com/lucasbento/react-native-actions/blob/master/packages/react-native-actions/README.md).
+> You can check out the [manual installation here](https://github.com/lucasbento/react-native-actions/blob/master/packages/react-native-actions/README.md#manual-installation).
 
 3. Simply put this on your root file (e.g. `index.js`):
 ```js
@@ -39,4 +39,4 @@ if (__DEV__) {
 ### Usage
 
 - <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd>: to reload the code on device.
-- <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>D</kbd>: to reload the code on device.
+- <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>D</kbd>: to open developer menu.
