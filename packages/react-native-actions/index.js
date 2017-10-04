@@ -3,7 +3,7 @@ import io from 'socket.io-client';
 
 import config from './config';
 
-const { RNActions } = NativeModules; 
+const { RNActions, DevMenu, DevSettings } = NativeModules; 
 
 const run = () => {
   const hostUrl = RNActions.getHostUrl()
@@ -12,7 +12,11 @@ const run = () => {
 
       socket.on('action', ({ type }) => {
         if (type === 'reload') {
-          RNActions.reload();
+          return DevSettings.reload();
+        }
+
+        if (type === 'openDevMenu') {
+          return DevMenu.open();
         }
       });
     });
