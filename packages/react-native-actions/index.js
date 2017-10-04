@@ -16,7 +16,7 @@ const run = () => {
         }
 
         if (type === 'openDevMenu') {
-          return DevMenu.open();
+          return DevMenu.show();
         }
       });
     });
