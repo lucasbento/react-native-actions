@@ -8,7 +8,8 @@
 	},
 	"dependencies": {
 		"react": "16.0.0-beta.5",
-		"react-native": "0.49.1"
+		"react-native": "0.49.1",
+		"react-native-actions": "../packages/react-native-actions"
 	},
 	"devDependencies": {
 		"babel-jest": "21.2.0",
