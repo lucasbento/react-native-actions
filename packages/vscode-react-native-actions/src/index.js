@@ -7,6 +7,7 @@ import {
 import isPackageDep from 'is-package-dep';
 import server from 'http';
 import io from 'socket.io';
+import { exec } from 'child_process';
 
 import config from '../config';
 
@@ -20,6 +21,11 @@ const COMMANDS = [{
   action: 'openDevMenu',
 }];
 
+const ANDROID_COMMANDS = {
+  reload: 'adb shell input text "RR"',
+  openDevMenu: 'adb shell input keyevent 82',
+};
+
 export const activate = (context) =>
   isPackageDep('react-native', {
     baseDir: workspace.rootPath,
@@ -31,8 +37,10 @@ export const activate = (context) =>
 
       const app = server.createServer();
       const socket = io(app);
-    
+
       app.listen(config.port);
+
+      app.on('connection', () => console.log('connected'));
 
       COMMANDS.forEach((command) => {
         if (command.button) {
@@ -44,13 +52,17 @@ export const activate = (context) =>
 
           status.show();
         }
-      
-        const subscription = commands.registerCommand(command.trigger, () =>
+
+        const subscription = commands.registerCommand(command.trigger, () => {
+          // Emit action for iOS
           socket.emit('action', {
             type: command.action,
-          }),
-        );
-      
+          });
+
+          // Run command for Android
+          exec(ANDROID_COMMANDS[command.action]);
+        });
+
         context.subscriptions.push(subscription);
       });
     });

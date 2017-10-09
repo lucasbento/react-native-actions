@@ -19,22 +19,11 @@ react-native link react-native-actions
 1. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
 2. Go to `node_modules` ➜ `react-native-actions` and add `RNActions.xcodeproj`
 3. In XCode, in the project navigator, select your project. Add `libRNActions.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
-4. Run your project (`Cmd+R`)<
+4. Run your project <kbd>⌘</kbd> + <kbd>R</kbd>
 
 #### Android
 
-1. Open up `android/app/src/main/java/[...]/MainActivity.java`
-  - Add `import com.lucasbento.actions.RNActionsPackage;` to the imports at the top of the file
-  - Add `new RNActionsPackage()` to the list returned by the `getPackages()` method
-2. Append the following lines to `android/settings.gradle`:
-  	```
-  	include ':react-native-actions'
-  	project(':react-native-actions').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-actions/android')
-  	```
-3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
-  	```
-      compile project(':react-native-actions')
-  	```
+Android doesn't require any dependency installed through reat-native, only [Android Debug Bridge (adb)](https://developer.android.com/studio/command-line/adb.html) on the computer.
 
 ## Usage
 ```js
