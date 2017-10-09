@@ -17,12 +17,14 @@ code --install-extension lucasbento.react-native-actions
 
 ### React-Native
 
+> Only required for iOS.
+
 1. Install the dependency
 ```bash
 yarn add react-native-actions --dev
 ```
 
-2. Link iOS/Android stuff
+2. Link on iOS
 ```bash
 react-native link react-native-actions
 ```
