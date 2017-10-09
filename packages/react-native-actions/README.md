@@ -24,7 +24,7 @@ react-native link react-native-actions
 #### Android
 
 1. Open up `android/app/src/main/java/[...]/MainActivity.java`
-  - Add `import com.reactlibrary.RNActionsPackage;` to the imports at the top of the file
+  - Add `import com.lucasbento.actions.RNActionsPackage;` to the imports at the top of the file
   - Add `new RNActionsPackage()` to the list returned by the `getPackages()` method
 2. Append the following lines to `android/settings.gradle`:
   	```
