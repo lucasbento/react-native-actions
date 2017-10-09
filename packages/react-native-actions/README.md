@@ -23,7 +23,7 @@ react-native link react-native-actions
 
 #### Android
 
-Android doesn't require any dependency installed through reat-native, only [Android Debug Bridge (adb)](https://developer.android.com/studio/command-line/adb.html) on the computer.
+Android doesn't require any dependency installed through react-native, only [Android Debug Bridge (adb)](https://developer.android.com/studio/command-line/adb.html) on the computer.
 
 ## Usage
 ```js
