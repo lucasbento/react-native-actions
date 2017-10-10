@@ -6,16 +6,13 @@
 		"url": "https://github.com/lucasbento"
 	},
 	"devDependencies": {
-		"lerna": "^2.2.0",
-		"pre-commit": "^1.2.2"
+		"husky": "^0.14.3",
+		"lerna": "^2.2.0"
 	},
 	"scripts": {
 		"clean": "lerna clean",
 		"bootstrap": "lerna bootstrap --concurrency=1",
 		"prepublish": "./tasks/prepublish.sh",
 		"precommit": "./tasks/precommit.sh"
-	},
-	"pre-commit": [
-    "precommit"
-  ]
+	}
 }
