@@ -1,4 +1,9 @@
-# react-native-actions
+# ![React Native Actions](/media/logo.png)
+
+<h1 align="center">react-native-actions</h1>
+<p align="center">
+  Run React Native actions from VSCode.
+</p>
 
 ## Getting started
 
