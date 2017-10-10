@@ -17,10 +17,11 @@ root_path=$PWD
 
 cd "$root_path"
 
-array=( react-native-actions vscode-react-native-actions )
-for project in "${array[@]}"
+commonFolderName="common"
+projects=( react-native-actions vscode-react-native-actions )
+for project in "${projects[@]}"
 do
-  configOutputFile="$root_path/packages/$project/config.json"
-  rm -rf "$configOutputFile"
-	cp config.json "$configOutputFile"
+  commonOutputFolder="$root_path/packages/$project/$commonFolderName"
+  rm -rf "$commonOutputFolder"
+  cp -r "$commonFolderName" "$commonOutputFolder"
 done

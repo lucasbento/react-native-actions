@@ -8,6 +8,11 @@
     "email": "lucas.bsilva@outlook.com",
     "url": "https://github.com/lucasbento"
   },
+  "icon": "media/logo.png",
+  "galleryBanner": {
+    "color": "#2EB1E4",
+    "theme": "light"
+  },
   "activationEvents": [
     "*"
   ],
