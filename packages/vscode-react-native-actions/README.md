@@ -1,4 +1,6 @@
-# ![React Native Actions](/media/logo.png)
+<p align="center">
+  <img alt="React Native Actions" title="React Native Actions" src="/media/logo.png" />
+</p>
 
 <h1 align="center">react-native-actions</h1>
 <p align="center">
@@ -17,7 +19,7 @@ code --install-extension lucasbento.react-native-actions
 ```
 > Or [click here to install from the marketplace](https://marketplace.visualstudio.com/items?itemName=lucasbento.react-native-actions).
 
-### React-Native
+### React Native
 
 > Only required for iOS.
 
