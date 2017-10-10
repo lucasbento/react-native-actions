@@ -1,4 +1,6 @@
-# ![React Native Actions](/media/logo.png)
+<p align="center">
+  <img alt="React Native Actions" title="React Native Actions" src="/media/logo.png" />
+</p>
 
 <h1 align="center">react-native-actions</h1>
 <p align="center">
@@ -30,7 +32,7 @@ react-native link react-native-actions
 
 Android doesn't require any dependency installed through react-native, only [Android Debug Bridge (adb)](https://developer.android.com/studio/command-line/adb.html) on the computer.
 
-## Usage
+## Usage (only required for iOS)
 ```js
 if (__DEV__) {
   require('react-native-actions');
