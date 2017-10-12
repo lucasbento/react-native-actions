@@ -11,6 +11,7 @@
 	"scripts": {
 		"clean": "lerna clean",
 		"bootstrap": "lerna bootstrap --concurrency=1",
+		"build": "./tasks/build.sh",
 		"prepublish": "./tasks/prepublish.sh"
 	}
 }
