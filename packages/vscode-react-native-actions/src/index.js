@@ -9,7 +9,7 @@ import server from 'http';
 import io from 'socket.io';
 import { exec } from 'child_process';
 
-import config from '../config';
+import config from '../common/config';
 
 const COMMANDS = [{
   trigger: 'extension.RNReload',
