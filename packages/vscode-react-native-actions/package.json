@@ -2,13 +2,13 @@
   "name": "react-native-actions",
   "displayName": "React Native Actions",
   "description": "Run React Native actions from VSCode",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "author": {
     "name": "Lucas Bento",
     "email": "lucas.bsilva@outlook.com",
     "url": "https://github.com/lucasbento"
   },
-  "icon": "media/logo.png",
+  "icon": "common/media/logo.png",
   "galleryBanner": {
     "color": "#2EB1E4",
     "theme": "light"
