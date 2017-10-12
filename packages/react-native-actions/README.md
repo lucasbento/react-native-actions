@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="React Native Actions" title="React Native Actions" src="/media/logo.png" />
+  <img alt="React Native Actions" title="React Native Actions" src="/common/media/logo.png" />
 </p>
 
 <h1 align="center">react-native-actions</h1>
