@@ -2,7 +2,7 @@
   "name": "react-native-actions",
   "displayName": "React Native Actions",
   "description": "Run React Native actions from VSCode",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "author": {
     "name": "Lucas Bento",
     "email": "lucas.bsilva@outlook.com",
@@ -27,7 +27,12 @@
       {
         "command": "extension.RNReload",
         "title": "Reload",
-        "category": "React Native"
+        "category": "React Native Actions"
+      },
+      {
+        "command": "extension.RNOpenDevMenu",
+        "title": "Open Developer Menu",
+        "category": "React Native Actions"
       }
     ],
     "keybindings": [

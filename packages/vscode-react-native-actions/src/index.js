@@ -1,6 +1,4 @@
 import {
-  StatusBarAlignment,
-  window,
   commands,
   workspace,
 } from 'vscode';
@@ -13,8 +11,6 @@ import config from '../common/config';
 
 const COMMANDS = [{
   trigger: 'extension.RNReload',
-  button: '$(repo-sync)',
-  tooltip: 'Reload React-Native App',
   action: 'reload',
 }, {
   trigger: 'extension.RNOpenDevMenu',
@@ -31,29 +27,22 @@ export const activate = (context) =>
     baseDir: workspace.rootPath,
   })
     .then((isRNProject) => {
-      if (!isRNProject) {
-        return;
+      let socket = null;
+      if (isRNProject) {
+        const app = server.createServer();
+        socket = io(app);
+  
+        app.listen(config.port);
       }
 
-      const app = server.createServer();
-      const socket = io(app);
-
-      app.listen(config.port);
-
-      app.on('connection', () => console.log('connected'));
-
       COMMANDS.forEach((command) => {
-        if (command.button) {
-          const status = window.createStatusBarItem(StatusBarAlignment.Left, 100);
-          status.command = command.trigger;
-          status.text = command.button;
-          status.tooltip = command.tooltip;
-          context.subscriptions.push(status);
-
-          status.show();
-        }
-
         const subscription = commands.registerCommand(command.trigger, () => {
+          // Handle hotkey even if it's not an RN project so it doesn't
+          // throw an error on VSCode
+          if (!isRNProject) {
+            return;
+          }
+
           // Emit action for iOS
           socket.emit('action', {
             type: command.action,
