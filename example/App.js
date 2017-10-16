@@ -12,6 +12,10 @@ import {
   View
 } from 'react-native';
 
+if (__DEV__) {
+  require('react-native-actions');
+}
+
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
     'Cmd+D or shake for dev menu',
