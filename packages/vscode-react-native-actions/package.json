@@ -1,8 +1,8 @@
 {
   "name": "react-native-actions",
   "displayName": "React Native Actions",
-  "description": "Run React Native actions from VSCode",
-  "version": "0.0.10",
+  "description": "Run React Native actions from within VSCode",
+  "version": "0.0.11",
   "author": {
     "name": "Lucas Bento",
     "email": "lucas.bsilva@outlook.com",

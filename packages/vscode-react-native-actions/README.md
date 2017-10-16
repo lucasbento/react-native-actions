@@ -4,7 +4,7 @@
 
 <h1 align="center">react-native-actions</h1>
 <p align="center">
-  Run React Native actions from VSCode.
+  Run React Native actions from within VSCode.
 </p>
 
 ## Quick start
