@@ -1,7 +1,7 @@
 {
   "name": "react-native-actions",
   "description": "Run React Native actions from within VSCode",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "author": {
     "name": "Lucas Bento",
     "email": "lucas.bsilva@outlook.com",
@@ -12,9 +12,6 @@
   },
   "dependencies": {
     "socket.io-client": "^2.0.3"
-  },
-  "engines": {
-    "vscode": "^1.16.0"
   },
   "keywords": [
     "actions",
