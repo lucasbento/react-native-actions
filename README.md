@@ -7,6 +7,11 @@
   Run React Native actions from within VSCode.
 </p>
 
+<p align="center">
+ <a href="https://github.com/lucasbento/react-native-actions/issues"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat"></a>
+ <a href="https://saythanks.io/to/lucasbento"><img src="https://img.shields.io/badge/say-thanks-ff69b4.svg"></a>
+</p>
+
 ## Quick start
 
 ### Installation
