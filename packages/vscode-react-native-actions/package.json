@@ -26,12 +26,17 @@
     "commands": [
       {
         "command": "extension.RNReload",
-        "title": "Reload",
+        "title": "Reload React Native app",
         "category": "React Native Actions"
       },
       {
         "command": "extension.RNOpenDevMenu",
-        "title": "Open Developer Menu",
+        "title": "Open developer menu",
+        "category": "React Native Actions"
+      },
+      {
+        "command": "extension.RNToggleShowRequest",
+        "title": "Toggle showing requests in Console",
         "category": "React Native Actions"
       }
     ],
@@ -45,6 +50,11 @@
         "command": "extension.RNOpenDevMenu",
         "key": "ctrl+shift+d",
         "mac": "cmd+shift+d"
+      },
+      {
+        "command": "extension.RNToggleShowRequest",
+        "key": "ctrl+shift+t",
+        "mac": "cmd+shift+t"
       }
     ]
   },
