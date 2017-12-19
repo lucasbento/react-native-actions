@@ -7,6 +7,11 @@
   Run React Native actions from within VSCode.
 </p>
 
+<p align="center">
+ <a href="https://github.com/lucasbento/react-native-actions/issues"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat"></a>
+ <a href="https://saythanks.io/to/lucasbento"><img src="https://img.shields.io/badge/say-thanks-ff69b4.svg"></a>
+</p>
+
 ## Quick start
 
 ### Installation
@@ -21,28 +26,33 @@ code --install-extension lucasbento.react-native-actions
 
 ### React Native
 
-> Only required for iOS.
-
 1. Install the dependency
 ```bash
 yarn add react-native-actions --dev
 ```
 
-2. Link on iOS
+2. Link (Only required for iOS)
 ```bash
 react-native link react-native-actions
 ```
 
 > You can check out the [manual installation here](https://github.com/lucasbento/react-native-actions/blob/master/packages/react-native-actions/README.md#manual-installation).
 
-3. Simply put this on your root file (e.g. `index.js`):
-```js
-if (__DEV__) {
-  require('react-native-actions');
+3. Simply wrap your root component with `withActions` [HOC](https://reactjs.org/docs/higher-order-components.html):
+```jsx
+// Your main component
+
+import withActions from 'react-native-actions';
+
+class Application extends Component {
+  // ...
 }
+
+export default withActions(Application); 
 ```
 
 ### Usage
 
-- <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd>: to reload the code on device.
-- <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>D</kbd>: to open developer menu.
+- <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd>: to reload the code on device;
+- <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>D</kbd>: to open developer menu;
+- <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>T</kbd>: to show network requests in console (requires remote debugging).

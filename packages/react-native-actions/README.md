@@ -7,19 +7,32 @@
   Run React Native actions from within VSCode.
 </p>
 
+<p align="center">
+ <a href="https://github.com/lucasbento/react-native-actions/issues"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat"></a>
+ <a href="https://saythanks.io/to/lucasbento"><img src="https://img.shields.io/badge/say-thanks-ff69b4.svg"></a>
+</p>
+
+## Features
+
+- Reload the code in device;
+- Open developer menu;
+- Show network requests in console (requires remote debugging).
+
+This package is inteded to be used with [VSCode React Native Actions](https://marketplace.visualstudio.com/items?itemName=lucasbento.react-native-actions) extension.
+
 ## Getting started
 
 ```bash
 yarn add react-native-actions --dev
 ```
 
-### Automatic installation
+### Automatic installation (only required for iOS)
 
 ```bash
 react-native link react-native-actions
 ```
 
-### Manual installation
+### Manual installation (only required for iOS)
 
 #### iOS
 
@@ -32,10 +45,16 @@ react-native link react-native-actions
 
 Android doesn't require any dependency installed through react-native, only [Android Debug Bridge (adb)](https://developer.android.com/studio/command-line/adb.html) on the computer.
 
-## Usage (only required for iOS)
-```js
-if (__DEV__) {
-  require('react-native-actions');
+## Usage
+```jsx
+// Your main component
+
+import withActions from 'react-native-actions';
+
+class Application extends Component {
+  // ...
 }
+
+export default withActions(Application); 
 ```
   

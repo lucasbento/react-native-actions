@@ -11,6 +11,8 @@
     "url": "https://github.com/lucasbento/react-native-actions/issues"
   },
   "dependencies": {
+    "hoist-non-react-statics": "^2.3.1",
+    "react-native-easy-toast": "^1.0.9",
     "socket.io-client": "^2.0.3"
   },
   "keywords": [

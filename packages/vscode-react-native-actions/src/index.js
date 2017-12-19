@@ -15,6 +15,9 @@ const COMMANDS = [{
 }, {
   trigger: 'extension.RNOpenDevMenu',
   action: 'openDevMenu',
+}, {
+  trigger: 'extension.RNToggleShowRequest',
+  action: 'toggleShowRequest',
 }];
 
 const ANDROID_COMMANDS = {
@@ -43,13 +46,15 @@ export const activate = (context) => {
         return;
       }
 
-      // Emit action for iOS
+      // Emit command
       socket.emit('action', {
         type: command.action,
       });
 
       // Run command for Android
-      exec(ANDROID_COMMANDS[command.action]);
+      if (ANDROID_COMMANDS[command.action]) {
+        exec(ANDROID_COMMANDS[command.action]);
+      }
     });
 
     context.subscriptions.push(subscription);
