@@ -38,7 +38,7 @@ react-native link react-native-actions
 
 > You can check out the [manual installation here](https://github.com/lucasbento/react-native-actions/blob/master/packages/react-native-actions/README.md#manual-installation).
 
-3. Simply wrap your root component with `withActions` HOC:
+3. Simply wrap your root component with `withActions` [HOC](https://reactjs.org/docs/higher-order-components.html):
 ```jsx
 // Your main component
 
