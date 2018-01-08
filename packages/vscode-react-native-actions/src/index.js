@@ -33,7 +33,7 @@ export const activate = (context) => {
   let socket = null;
   if (isRNProject) {
     const app = server.createServer();
-    socket = io(app);
+    socket = io(app, { pingTimeout: 30000 });
 
     app.listen(config.port);
   }
