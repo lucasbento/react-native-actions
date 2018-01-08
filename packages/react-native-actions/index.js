@@ -8,6 +8,7 @@ import config from './common/config';
 
 const DEFAULT_XMLHTTPREQUEST = GLOBAL.XMLHttpRequest;
 const isDev = __DEV__;
+const isIOS = Platform.OS === 'ios';
 
 const withActions = (WrappedComponent) => {
   class RNActions extends Component {
@@ -44,7 +45,7 @@ const withActions = (WrappedComponent) => {
       }
   
       const { RNActions: NativeRNActions } = NativeModules;
-  
+
       NativeRNActions.getHostUrl()
         .then(this.handleSetupSocket);
     };
@@ -55,17 +56,12 @@ const withActions = (WrappedComponent) => {
       this.socket = io(`${url}:${config.port}`);
   
       const COMMANDS = {
-        ...Platform.select({
-          ios: {
-            reload: DevSettings.reload,
-            openDevMenu: DevMenu.show,
-          },
-          android: {},
-        }),
+        reload: isIOS && DevSettings.reload,
+        openDevMenu: isIOS && DevMenu.show,
         toggleShowRequest: this.toggleShowRequest,
       };
   
-      this.socket.on('action', ({ type }) => COMMANDS[type]());
+      this.socket.on('action', ({ type }) => COMMANDS[type] && COMMANDS[type]());
     };
   
     handleUnmount = () => this.socket.disconnect();
