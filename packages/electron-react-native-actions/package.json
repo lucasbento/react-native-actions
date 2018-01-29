@@ -1,0 +1,55 @@
+{
+  "name": "react-native-actions",
+  "description": "Run React Native actions from within your computer",
+  "version": "0.0.1",
+  "author": {
+    "name": "Lucas Bento",
+    "email": "lucas.bsilva@outlook.com",
+    "url": "https://github.com/lucasbento"
+  },
+  "config": {
+    "forge": "./forge.config.js"      
+  },
+  "dependencies": {
+    "auto-launch": "lucasbento/node-auto-launch",
+    "electron-compile": "^6.4.2",
+    "electron-debug": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.0.1",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
+    "devtron": "^1.1.0",
+    "electron-forge": "^4.1.2",
+    "electron-prebuilt-compile": "1.7.9",
+    "eslint": "^4.9.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-config-airbnb-base": "^12.1.0"
+  },
+  "files": [
+    "./src/**/*"
+  ],
+  "keywords": [
+    "electron",
+    "electron-app",
+    "react-native",
+    "react",
+    "ios",
+    "android"
+  ],
+  "license": "MIT",
+  "main": "./src/main.js",
+  "bugs": {
+    "url": "https://github.com/lucasbento/react-native-actions/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lucasbento/react-native-actions"
+  },
+  "scripts": {
+    "lint": "eslint src",
+    "make": "electron-forge make",
+    "package": "electron-forge package --platform=darwin",
+    "start": "electron-forge start"
+  }
+}
