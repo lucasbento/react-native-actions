@@ -31,7 +31,7 @@ code --install-extension lucasbento.react-native-actions
 yarn add react-native-actions --dev
 ```
 
-2. Link (Only required for iOS)
+2. Link
 ```bash
 react-native link react-native-actions
 ```
