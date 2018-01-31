@@ -26,13 +26,13 @@ This package is inteded to be used with [VSCode React Native Actions](https://ma
 yarn add react-native-actions --dev
 ```
 
-### Automatic installation (only required for iOS)
+### Automatic installation
 
 ```bash
 react-native link react-native-actions
 ```
 
-### Manual installation (only required for iOS)
+### Manual installation
 
 #### iOS
 
@@ -42,8 +42,18 @@ react-native link react-native-actions
 4. Run your project <kbd>⌘</kbd> + <kbd>R</kbd>
 
 #### Android
-
-Android doesn't require any dependency installed through react-native, only [Android Debug Bridge (adb)](https://developer.android.com/studio/command-line/adb.html) on the computer.
+1. Open up `android/app/src/main/java/[...]/MainActivity.java`
+  - Add `import com.lucasbento.RNActions.RNActionsPackage;` to the imports at the top of the file
+  - Add `new RNActionsPackage()` to the list returned by the `getPackages()` method
+2. Append the following lines to `android/settings.gradle`:
+  	```
+  	include ':react-native-actions'
+  	project(':react-native-actions').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-actions/android')
+  	```
+3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
+  	```
+  	compile project(':react-native-actions')
+   ```
 
 ## Usage
 ```jsx
