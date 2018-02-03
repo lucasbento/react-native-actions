@@ -1,4 +1,3 @@
-
 const { productName } = require('./package.json');
 const path = require('path');
 
@@ -19,7 +18,7 @@ module.exports = {
   },
   github_repository: {
     owner: 'lucasbento',
-    name: 'menubar-brightness',
+    name: 'react-native-actions',
   },
   electronInstallerDMG: {
     icon: './src/assets/icon.icns',

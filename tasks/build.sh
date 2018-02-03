@@ -3,7 +3,7 @@
 cd "$(dirname "$0")"
 cd ../packages
 
-projects=( vscode-react-native-actions )
+projects=( vscode-react-native-actions electron-react-native-actions )
 for project in "${projects[@]}"
 do
   cd $project

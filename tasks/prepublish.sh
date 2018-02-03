@@ -7,7 +7,7 @@ root_path=$PWD
 cd "$root_path"
 
 commonFolderName="common"
-projects=( react-native-actions vscode-react-native-actions )
+projects=( react-native-actions vscode-react-native-actions electron-react-native-actions )
 for project in "${projects[@]}"
 do
   commonOutputFolder="$root_path/packages/$project/$commonFolderName"

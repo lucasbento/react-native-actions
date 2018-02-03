@@ -1,43 +1,25 @@
 import { app, globalShortcut } from 'electron';
-import debug from 'electron-debug';
-import spawn from 'child_process';
-import http from 'http';
-import io from 'socket.io';
+import WebSocket from 'ws';
 
-import menu, { RELOAD_HOTKEY } from './menu';
+import buildTray from './tray';
+import config from '../common/config.json';
+import COMMANDS, { handleCommand } from './commands';
+import connections from './connections';
 
-const COMMANDS = {
-  [RELOAD_HOTKEY]: {
-    socket: 'reload',
-    shell: 'adb shell input text "RR"',
-  },
-};
-// }, {
-//   trigger: 'extension.RNOpenDevMenu',
-//   action: {
-//     socket: 'openDevMenu',
-//     shell: 'adb shell input keyevent 82',
-//   },
-// }, {
-//   trigger: 'extension.RNToggleShowRequest',
-//   action: 'toggleShowRequest',
-// }];
-
-debug({ showDevTools: true });
+// eslint-disable-next-line no-unused-vars
+let tray = null;
 
 app.on('ready', () => {
-  menu();
+  tray = buildTray();
 
-  const server = http.createServer();
-  const socket = io(server, { pingTimeout: 30000 });
+  const wss = new WebSocket.Server({ port: config.port });
+  wss.on('connection', (ws) => {
+    connections.addConnection(ws);
 
-  server.listen(4444);
+    ws.on('close', () =>
+      connections.removeConnection(ws));
 
-  globalShortcut.register(RELOAD_HOTKEY, () => {
-    socket.emit('action', {
-      type: COMMANDS[RELOAD_HOTKEY].socket,
-    });
-
-    spawn.exec(COMMANDS[RELOAD_HOTKEY].shell);
+    Object.keys(COMMANDS).forEach(key =>
+      globalShortcut.register(key, handleCommand({ key, ws })));
   });
 });

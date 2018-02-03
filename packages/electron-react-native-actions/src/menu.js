@@ -1,22 +1,13 @@
-import path from 'path';
+
 import { Menu } from 'electron';
 
-import buildTray from './tray';
+import COMMANDS, { handleCommand } from './commands';
 
-export const RELOAD_HOTKEY = 'CommandOrControl+Shift+R';
-
-const menu = () => {
-  const tray = buildTray();
-
-  const contextMenu = Menu.buildFromTemplate([{
-    label: 'Reload',
-    accelerator: RELOAD_HOTKEY,
-    click: () => {
-      // TODO: handle reload
-    },
-  }]);
-
-  tray.setContextMenu(contextMenu);
-};
+const menu = () =>
+  Menu.buildFromTemplate(Object.keys(COMMANDS).map(key => ({
+    label: COMMANDS[key].label,
+    accelerator: key,
+    click: handleCommand({ key }),
+  })));
 
 export default menu;

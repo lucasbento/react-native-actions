@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Platform, NativeModules } from 'react-native';
+import Sockette from 'sockette';
 import hoistNonReactStatics from 'hoist-non-react-statics';
 import Toast from 'react-native-easy-toast';
-import io from 'socket.io-client';
 
 import config from './common/config';
 
@@ -13,7 +13,7 @@ const isIOS = Platform.OS === 'ios';
 const withActions = (WrappedComponent) => {
   class RNActions extends Component {
     state = {
-      isShowRequestEnabled: false,
+      isShowRequestsEnabled: false,
     };
   
     componentWillMount() {
@@ -24,18 +24,18 @@ const withActions = (WrappedComponent) => {
       this.handleUnmount();
     }
   
-    toggleShowRequest = () =>
-      this.setState(({ isShowRequestEnabled }) => ({
-        isShowRequestEnabled: !isShowRequestEnabled,
+    toggleShowRequests = () =>
+      this.setState(({ isShowRequestsEnabled }) => ({
+        isShowRequestsEnabled: !isShowRequestsEnabled,
       }), () => {
-        const toastMessage = this.state.isShowRequestEnabled ?
+        const toastMessage = this.state.isShowRequestsEnabled ?
           'Enabled showing requests in console' :
           'Disabled showing requests in console';
 
         this.toast.show(toastMessage);
 
-        GLOBAL.XMLHttpRequest = this.state.isShowRequestEnabled ?
-          GLOBAL.originalXMLHttpRequest :
+        GLOBAL.XMLHttpRequests = this.state.isShowRequestsEnabled ?
+          GLOBAL.originalXMLHttpRequests :
           DEFAULT_XMLHTTPREQUEST;
       });
   
@@ -52,19 +52,21 @@ const withActions = (WrappedComponent) => {
   
     handleSetupSocket = (url) => {
       const { DevMenu, DevSettings } = NativeModules;
-  
-      this.socket = io(`${url}:${config.port}`);
-  
+
       const COMMANDS = {
         reload: isIOS && DevSettings.reload,
         openDevMenu: isIOS && DevMenu.show,
-        toggleShowRequest: this.toggleShowRequest,
+        showRequests: this.toggleShowRequests,
       };
-  
-      this.socket.on('action', ({ type }) => COMMANDS[type] && COMMANDS[type]());
+
+      this.socket = new Sockette(`${url}:${config.port}`, {
+        timeout: 5e3,
+        maxAttempts: 10,
+        onmessage: ({ data: type }) => COMMANDS[type] && COMMANDS[type](),
+      });
     };
   
-    handleUnmount = () => this.socket.disconnect();
+    handleUnmount = () => this.socket.close();
   
     render() {
       if (isDev) {
