@@ -1,9 +1,6 @@
-let connections = [];
+let server = null;
 
 export default {
-  addConnection: connection => connections.push(connection),
-  removeConnection: (connection) => {
-    connections = connections.filter(c => c !== connection);
-  },
-  getConnections: () => connections,
+  setServer: wss => server = wss,
+  getConnections: () => server.clients,
 };

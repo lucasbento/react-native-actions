@@ -1,4 +1,3 @@
-
 import { Menu } from 'electron';
 
 import COMMANDS, { handleCommand } from './commands';

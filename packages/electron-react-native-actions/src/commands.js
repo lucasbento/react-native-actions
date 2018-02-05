@@ -21,7 +21,13 @@ const COMMANDS = {
 };
 
 export const handleCommand = ({ key }) => () => {
-  connections.getConnections().forEach(ws => ws.send(COMMANDS[key].action));
+  connections.getConnections().forEach(ws =>
+    ws.send(COMMANDS[key].action, (error) => {
+      if (error) {
+        console.log('error', error);
+      }
+    }),
+  );
 
   if (COMMANDS[key].shell) {
     spawn.exec(COMMANDS[key].shell);
