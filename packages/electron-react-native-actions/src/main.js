@@ -5,12 +5,10 @@ import COMMANDS, { handleCommand } from './commands';
 import server from './server';
 
 // eslint-disable-next-line no-unused-vars
-let tray = null;
+app.on('ready', async () => {
+  await server();
 
-app.on('ready', () => {
-  server();
-
-  tray = buildTray();
+  buildTray();
 
   Object.keys(COMMANDS).forEach(key =>
     globalShortcut.register(key, handleCommand({ key })));
