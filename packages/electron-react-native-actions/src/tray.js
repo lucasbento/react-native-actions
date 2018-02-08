@@ -7,8 +7,17 @@ import buildMenu from './menu';
 const mediaPath = path.join(__dirname, 'assets');
 const iconPath = path.join(mediaPath, 'iconTemplate.png');
 
+let appTray;
+
+export const rebuildTrayMenu = () => {
+  const menu = buildMenu();
+  appTray.setContextMenu(menu);
+
+  return appTray;
+};
+
 const tray = () => {
-  const appTray = new Tray(iconPath);
+  appTray = new Tray(iconPath);
   const menu = buildMenu();
 
   appTray.setToolTip(pkg.name);
