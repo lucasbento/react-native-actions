@@ -1,3 +1,4 @@
+import WebSocket from 'ws';
 import spawn from 'child_process';
 
 import KEYS from './keys';
@@ -22,7 +23,7 @@ const COMMANDS = {
 
 export const handleCommand = ({ key }) => () => {
   connections.getConnections().forEach(ws =>
-    ws.send(COMMANDS[key].action, (error) => {
+    ws.readyState === WebSocket.OPEN && ws.send(COMMANDS[key].action, (error) => {
       if (error) {
         console.log('error', error);
       }
