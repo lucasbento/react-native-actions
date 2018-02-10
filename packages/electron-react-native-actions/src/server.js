@@ -13,9 +13,9 @@ const server = () => {
     ws.on('close', () => rebuildTrayMenu());
   });
 
-  connections.setServer(server);
+  connections.setServer(wss);
 
-  return Promise.resolve(server);
+  return Promise.resolve(wss);
 };
 
 export default server;
