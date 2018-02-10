@@ -22,18 +22,18 @@ module.exports = {
   },
   electronInstallerDMG: {
     icon: './src/assets/icon.icns',
-    'icon-size': 160,
+    'icon-size': 150,
     background: './src/assets/background.png',
     contents: [
       {
-        x: 180,
-        y: 170,
+        x: 121,
+        y: 200,
         type: 'file',
         path: appPath,
       },
       {
-        x: 480,
-        y: 170,
+        x: 538,
+        y: 200,
         type: 'link',
         path: '/Applications',
       },

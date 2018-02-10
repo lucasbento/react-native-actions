@@ -2,7 +2,7 @@
   "name": "react-native-actions",
   "productName": "React Native Actions",
   "description": "Run React Native actions from within your computer",
-  "version": "0.0.1",
+  "version": "1.2.0",
   "author": {
     "name": "Lucas Bento",
     "email": "lucas.bsilva@outlook.com",
