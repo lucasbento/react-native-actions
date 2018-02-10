@@ -12,11 +12,9 @@
  <a href="https://saythanks.io/to/lucasbento"><img src="https://img.shields.io/badge/say-thanks-ff69b4.svg"></a>
 </p>
 
-## Quick start
+## Installation
 
-### Installation
-
-#### React Native
+### React Native
 
 1. Install the package
 ```bash
@@ -43,7 +41,7 @@ class Application extends Component {
 export default withActions(Application); 
 ```
 
-#### VScode
+### VScode
 
 Add the extension on terminal:
 ```bash
@@ -51,7 +49,7 @@ code --install-extension lucasbento.react-native-actions
 ```
 > Or [click here to install from the marketplace][vscode-marketplace].
 
-### Usage
+## Usage
 
 - <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd>: to reload the code on device;
 - <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>D</kbd>: to open developer menu;

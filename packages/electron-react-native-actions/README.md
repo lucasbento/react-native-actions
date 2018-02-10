@@ -12,15 +12,13 @@
  <a href="https://saythanks.io/to/lucasbento"><img src="https://img.shields.io/badge/say-thanks-ff69b4.svg"></a>
 </p>
 
-## Quick start
+## Installation
 
-### Installation
-
-#### Electron
+### Electron
 
 [Download, install the latest release][latest-release] and install the [React Native][react-native] package.
 
-#### React Native
+### React Native
 
 1. Install the package
 ```bash
@@ -47,7 +45,7 @@ class Application extends Component {
 export default withActions(Application); 
 ```
 
-### Usage
+## Usage
 
 - <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd>: to reload the code on device;
 - <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>D</kbd>: to open developer menu;
