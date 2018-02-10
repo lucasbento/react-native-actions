@@ -16,6 +16,10 @@
 
 ### Installation
 
+#### Electron
+
+[Download, install the latest release][latest-release] and install the [React Native][react-native] package.
+
 #### React Native
 
 1. Install the package
@@ -43,14 +47,6 @@ class Application extends Component {
 export default withActions(Application); 
 ```
 
-#### VScode
-
-Add the extension on terminal:
-```bash
-code --install-extension lucasbento.react-native-actions
-```
-> Or [click here to install from the marketplace][vscode-marketplace].
-
 ### Usage
 
 - <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd>: to reload the code on device;
@@ -61,4 +57,3 @@ code --install-extension lucasbento.react-native-actions
 [react-native]: #react-native
 [react-native-installation]: https://github.com/lucasbento/react-native-actions/blob/master/packages/react-native-actions/README.md#manual-installation
 [hoc]: https://reactjs.org/docs/higher-order-components.html
-[vscode-marketplace]: https://marketplace.visualstudio.com/items?itemName=lucasbento.react-native-actions

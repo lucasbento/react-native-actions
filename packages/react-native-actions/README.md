@@ -18,7 +18,7 @@
 - Open developer menu;
 - Show network requests in console (requires remote debugging).
 
-This package is inteded to be used with [VSCode React Native Actions](https://marketplace.visualstudio.com/items?itemName=lucasbento.react-native-actions) extension.
+This package is intended to be used with [React Native Actions][react-native-actions-github].
 
 ## Getting started
 
@@ -26,13 +26,13 @@ This package is inteded to be used with [VSCode React Native Actions](https://ma
 yarn add react-native-actions --dev
 ```
 
-### Automatic installation (only required for iOS)
+### Automatic installation
 
 ```bash
 react-native link react-native-actions
 ```
 
-### Manual installation (only required for iOS)
+### Manual installation
 
 #### iOS
 
@@ -58,3 +58,4 @@ class Application extends Component {
 export default withActions(Application); 
 ```
   
+[react-native-actions-github]: https://github.com/lucasbento/react-native-actions
