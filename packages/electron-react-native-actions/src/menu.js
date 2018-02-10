@@ -2,6 +2,7 @@ import { Menu } from 'electron';
 
 import COMMANDS, { handleCommand } from './commands';
 import connections from './connections';
+import { getOpenAtLogin, setOpenAtLogin } from './utils';
 
 const menu = () => {
   const separator = {
@@ -23,6 +24,15 @@ const menu = () => {
   return Menu.buildFromTemplate([
     ...commands,
     separator,
+    {
+      label: 'Preferences',
+      submenu: [{
+        label: 'Launch at Login',
+        type: 'checkbox',
+        checked: getOpenAtLogin(),
+        click: setOpenAtLogin,
+      }],
+    },
     deviceCount,
   ]);
 };
