@@ -1,0 +1,16 @@
+{
+  "extends": "airbnb-base",
+  "parser": "babel-eslint",
+  "rules": {
+    "no-console": 0,
+    "function-paren-newline": 0,
+    "no-return-assign": 0,
+    "import/no-extraneous-dependencies": 0,
+    "import/no-unresolved": 0,
+    "import/extensions": [ "always", { "ignorePackages": true } ],
+    "no-unused-vars": 0
+  },
+  "env": {
+    "jest": true
+  }
+}

@@ -4,10 +4,10 @@ import Sockette from 'sockette';
 import hoistNonReactStatics from 'hoist-non-react-statics';
 import Toast from 'react-native-easy-toast';
 
-import config from './common/config';
+import config from './common/config.json';
 
 const DEFAULT_XMLHTTPREQUEST = GLOBAL.XMLHttpRequest;
-const isDev = __DEV__;
+const isDev = __DEV__; // eslint-disable-line no-undef
 const isIOS = Platform.OS === 'ios';
 
 const withActions = (WrappedComponent) => {
@@ -15,15 +15,15 @@ const withActions = (WrappedComponent) => {
     state = {
       isShowRequestsEnabled: false,
     };
-  
+
     componentWillMount() {
       this.handleMount();
     }
-  
+
     componentWillUnmount() {
       this.handleUnmount();
     }
-  
+
     toggleShowRequests = () =>
       this.setState(({ isShowRequestsEnabled }) => ({
         isShowRequestsEnabled: !isShowRequestsEnabled,
@@ -38,18 +38,18 @@ const withActions = (WrappedComponent) => {
           GLOBAL.originalXMLHttpRequests :
           DEFAULT_XMLHTTPREQUEST;
       });
-  
+
     handleMount = () => {
       if (!isDev) {
         return;
       }
-  
+
       const { RNActions: NativeRNActions } = NativeModules;
 
       NativeRNActions.getHostUrl()
         .then(this.handleSetupSocket);
     };
-  
+
     handleSetupSocket = (url) => {
       const { DevMenu, DevSettings } = NativeModules;
 
@@ -65,9 +65,9 @@ const withActions = (WrappedComponent) => {
         onmessage: ({ data: type }) => COMMANDS[type] && COMMANDS[type](),
       });
     };
-  
+
     handleUnmount = () => this.socket.close();
-  
+
     render() {
       if (isDev) {
         return [

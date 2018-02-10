@@ -25,6 +25,7 @@ const ANDROID_COMMANDS = {
   openDevMenu: 'adb shell input keyevent 82',
 };
 
+// eslint-disable-next-line import/prefer-default-export
 export const activate = (context) => {
   const isRNProject = isPackageDep('react-native', {
     baseDir: workspace.rootPath,

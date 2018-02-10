@@ -5,16 +5,12 @@ import connections from './connections';
 import { rebuildTrayMenu } from './tray';
 
 const server = () => {
-  const server = new WebSocket.Server({ port: config.port });
+  const wss = new WebSocket.Server({ port: config.port });
 
-  server.on('connection', (ws, req) => {
-    console.log('new connection');
+  wss.on('connection', (ws) => {
     rebuildTrayMenu();
-  
-    ws.on('close', () => rebuildTrayMenu());
 
-    // console.log('ws', ws);
-    // console.log('req', req);
+    ws.on('close', () => rebuildTrayMenu());
   });
 
   connections.setServer(server);

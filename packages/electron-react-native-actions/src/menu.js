@@ -6,7 +6,7 @@ import { getOpenAtLogin, setOpenAtLogin } from './utils';
 
 const menu = () => {
   const separator = {
-    type: 'separator'
+    type: 'separator',
   };
 
   const commands = Object.keys(COMMANDS).map(key => ({

@@ -6,12 +6,17 @@
 		"url": "https://github.com/lucasbento"
 	},
 	"devDependencies": {
+		"babel-eslint": "^8.2.1",
+		"eslint": "^4.17.0",
+		"eslint-config-airbnb-base": "^12.1.0",
+		"eslint-plugin-import": "^2.8.0",
 		"lerna": "^2.2.0"
 	},
 	"scripts": {
 		"clean": "lerna clean",
 		"bootstrap": "lerna bootstrap --concurrency=1",
 		"build": "./tasks/build.sh",
-		"prepublish": "./tasks/prepublish.sh"
+		"prepublish": "./tasks/prepublish.sh",
+		"lint": "eslint ./packages/*"
 	}
 }
