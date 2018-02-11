@@ -6,6 +6,8 @@ import Toast from 'react-native-easy-toast';
 
 import config from './common/config.json';
 
+const { RNActions: NativeRNActions } = NativeModules;
+
 const DEFAULT_XMLHTTPREQUEST = GLOBAL.XMLHttpRequest;
 const isDev = __DEV__; // eslint-disable-line no-undef
 const isIOS = Platform.OS === 'ios';
@@ -44,8 +46,6 @@ const withActions = (WrappedComponent) => {
         return;
       }
 
-      const { RNActions: NativeRNActions } = NativeModules;
-
       NativeRNActions.getHostUrl()
         .then(this.handleSetupSocket);
     };
@@ -54,8 +54,8 @@ const withActions = (WrappedComponent) => {
       const { DevMenu, DevSettings } = NativeModules;
 
       const COMMANDS = {
-        reload: isIOS && DevSettings.reload,
-        openDevMenu: isIOS && DevMenu.show,
+        reload: isIOS ? DevSettings.reload : NativeRNActions.reload,
+        openDevMenu: isIOS ? DevMenu.show : NativeRNActions.openDevMenu,
         showRequests: this.toggleShowRequests,
       };
 
