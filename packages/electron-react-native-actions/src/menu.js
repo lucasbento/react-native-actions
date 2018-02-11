@@ -2,7 +2,7 @@ import { Menu } from 'electron';
 
 import COMMANDS, { handleCommand } from './commands';
 import connections from './connections';
-import { getOpenAtLogin, setOpenAtLogin } from './utils';
+import { getOpenAtLogin, setOpenAtLogin, closeApp } from './utils';
 
 const menu = () => {
   const separator = {
@@ -23,6 +23,7 @@ const menu = () => {
 
   return Menu.buildFromTemplate([
     ...commands,
+    deviceCount,
     separator,
     {
       label: 'Preferences',
@@ -33,7 +34,12 @@ const menu = () => {
         click: setOpenAtLogin,
       }],
     },
-    deviceCount,
+    separator,
+    {
+      label: 'Quit',
+      accelerator: 'Command+Q',
+      click: closeApp,
+    },
   ]);
 };
 

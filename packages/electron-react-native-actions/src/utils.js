@@ -1,9 +1,10 @@
 import settings from 'electron-settings';
 import AutoLaunch from 'auto-launch';
+import { app } from 'electron';
 
 import pkg from '../package.json';
 
-const autoLauncher = new AutoLaunch({
+export const autoLauncher = new AutoLaunch({
   name: pkg.productName,
 });
 
@@ -17,3 +18,5 @@ export const setOpenAtLogin = ({ checked }) => {
 
   return autoLauncher.disable();
 };
+
+export const closeApp = () => app.quit();
