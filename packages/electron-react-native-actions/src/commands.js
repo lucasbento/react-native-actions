@@ -8,7 +8,6 @@ const COMMANDS = {
   [KEYS.RELOAD]: {
     label: 'Reload',
     action: 'reload',
-    shell: 'adb shell input text "RR"',
   },
   [KEYS.DEV_MENU]: {
     label: 'Open developer menu',
@@ -21,7 +20,7 @@ const COMMANDS = {
   },
 };
 
-export const handleCommand = ({ key }) => () => {
+export const handleCommand = ({ key }) => () =>
   connections.getConnections().forEach(ws =>
     ws.readyState === WebSocket.OPEN && ws.send(COMMANDS[key].action, (error) => {
       if (error) {
@@ -29,10 +28,5 @@ export const handleCommand = ({ key }) => () => {
       }
     }),
   );
-
-  if (COMMANDS[key].shell) {
-    spawn.exec(COMMANDS[key].shell);
-  }
-};
 
 export default COMMANDS;

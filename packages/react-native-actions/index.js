@@ -54,7 +54,11 @@ const withActions = (WrappedComponent) => {
       const { DevMenu, DevSettings } = NativeModules;
 
       const COMMANDS = {
-        reload: isIOS ? DevSettings.reload : NativeRNActions.reload,
+        reload: () => {
+          this.handleUnmount();
+
+          return isIOS ? DevSettings.reload() : NativeRNActions.reload();
+        },
         openDevMenu: isIOS ? DevMenu.show : NativeRNActions.openDevMenu,
         showRequests: this.toggleShowRequests,
       };
@@ -66,7 +70,8 @@ const withActions = (WrappedComponent) => {
       });
     };
 
-    handleUnmount = () => this.socket.close();
+    handleUnmount = () =>
+      this.socket.close();
 
     render() {
       if (isDev) {
