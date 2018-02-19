@@ -54,71 +54,21 @@ public class RNActionsModule extends ReactContextBaseJavaModule {
     }
   }
 
-//  @ReactMethod
-//  private void reload(final Promise promise) {
-//    clearLifecycleEventListener();
-//    try {
-//      final ReactInstanceManager instanceManager = resolveInstanceManager();
-//      if (instanceManager == null) {
-//        return;
-//      }
-//
-//      new Handler(Looper.getMainLooper()).post(new Runnable() {
-//        @Override
-//        public void run() {
-//          try {
-//            instanceManager.recreateReactContextInBackground();
-//          } catch (Exception e) {
-//            promise.reject(e);
-//          }
-//        }
-//      });
-//    } catch (Exception e) {
-//      promise.reject(e);
-//    }
-//  }
-//
-//  private ReactInstanceManager resolveInstanceManager() throws NoSuchFieldException, IllegalAccessException {
-//    ReactInstanceManager instanceManager = getReactInstanceManager();
-//    if (instanceManager != null) {
-//      return instanceManager;
-//    }
-//
-//    final Activity currentActivity = getCurrentActivity();
-//    if (currentActivity == null) {
-//      return null;
-//    }
-//
-//    ReactApplication reactApplication = (ReactApplication) currentActivity.getApplication();
-//    instanceManager = reactApplication.getReactNativeHost().getReactInstanceManager();
-//
-//    return instanceManager;
-//  }
-//
-//
-//  private void clearLifecycleEventListener() {
-//    // Remove LifecycleEventListener to prevent infinite restart loop
-//    if (mLifecycleEventListener != null) {
-//      getReactApplicationContext().removeLifecycleEventListener(mLifecycleEventListener);
-//      mLifecycleEventListener = null;
-//    }
-//  }
+  @ReactMethod
+  public void reload(final Promise promise) {
+    try {
+      UiThreadUtil.runOnUiThread(new Runnable() {
+        @Override
+        public void run() {
+          getDevSupportManager().handleReloadJS();
+        }
+      });
 
-//  @ReactMethod
-//  public void reload(final Promise promise) {
-//    try {
-//      UiThreadUtil.runOnUiThread(new Runnable() {
-//        @Override
-//        public void run() {
-//          getDevSupportManager().handleReloadJS();
-//        }
-//      });
-//
-//      promise.resolve("");
-//    } catch(Exception e) {
-//      promise.reject(e);
-//    }
-//  }
+      promise.resolve("");
+    } catch(Exception e) {
+      promise.reject(e);
+    }
+  }
 
   @ReactMethod
   public void openDevMenu(final Promise promise) {
