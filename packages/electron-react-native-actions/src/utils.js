@@ -1,7 +1,7 @@
 import settings from 'electron-settings';
 import AutoLaunch from 'auto-launch';
 import { app } from 'electron';
-import { spawn } from 'child_process';
+import { exec } from 'child_process';
 
 import pkg from '../package.json';
 import config from '../common/config.json';
@@ -24,4 +24,4 @@ export const setOpenAtLogin = ({ checked }) => {
 export const closeApp = () => app.quit();
 
 export const reverseAdbPort = () =>
-  spawn('adb', ['reverse', `tcp:${config.port}`, `tcp:${config.port}`]);
+  exec(`adb reverse tcp:${config.port} tcp:${config.port}`);

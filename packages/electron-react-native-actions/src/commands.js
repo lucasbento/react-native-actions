@@ -1,5 +1,4 @@
 import WebSocket from 'ws';
-import spawn from 'child_process';
 
 import KEYS from './keys';
 import connections from './connections';
